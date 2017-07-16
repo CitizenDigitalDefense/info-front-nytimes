@@ -1,5 +1,8 @@
 .page {
   padding: 24px 0;
+  @media(max-width: 720px) {
+    padding: 0;
+  }
 }
 
 .story {
@@ -9,9 +12,17 @@
   @media(max-width: 1120px) {
     width: 975px;
   }
+  @media(max-width: 720px) {
+    width: 100%;
+    padding-top: 0;
+  }
   article {
     display: flex;
     justify-content: space-between;
+    float: left;
+    @media(max-width: 720px) {
+      display: block;
+    }
   }
 }
 
@@ -28,6 +39,14 @@
     font-family: sans-serif;
     font-weight: 900;
     font-family: 'Roboto', sans-serif;
+    @media(max-width: 720px) {
+      border-top: 1px solid #e2e2e2;
+      padding-top: 14px;
+      border-bottom: 1px solid #e2e2e2;
+      padding-bottom: 16px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
   h1 {
     font-family: 'Gentium Book Basic', serif;
@@ -38,6 +57,10 @@
     font-style: normal;
     font-style: italic;
     padding-bottom: 10px;
+    @media(max-width: 720px) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
   }
 }
 .story-header-meta {
@@ -50,12 +73,23 @@
   padding-top: 14px;
   border-bottom: 1px solid #e2e2e2;
   padding-bottom: 16px;
+  @media(max-width: 720px) {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: auto;
+  }
   a {
     color: #326891;
     text-decoration: none;
   }
   .extras {
     height: 26px;
+    @media(max-width: 720px) {
+      margin-top: 14px;
+      padding: 6px 0;
+      height: 48px;
+    }
     div {
       position: relative;
       top: -4px;
@@ -83,10 +117,17 @@
 }
 
 .byline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 12px;
   line-height: 12px;
   font-weight: 400;
   font-style: normal;
+  img {
+    border-radius: 100%;
+    margin-right: 4px;
+  }
   strong {
     font-weight: 700;
     &:hover {
@@ -101,6 +142,11 @@
   padding-top: 24px;
   margin-right: 60px;
   width: 700px;
+  @media(max-width: 720px) {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
   .lead-image {
     font-size: 13px;
     line-height: 17px;
@@ -126,6 +172,10 @@
     font-size: 17px;
     line-height: 26px;
     font-weight: 400;
+    @media(max-width: 720px) {
+      width: 100%;
+      margin: 0;
+    }
     a {
       color: #326891;
     }
@@ -172,7 +222,6 @@
     width: 100%;
   }
   .more-content {
-    margin: 80px 0;
     li {
       a {
         display: flex;
@@ -211,6 +260,7 @@
   .trending-content {
     border-top: 1px solid #ccc;
     padding-top: 10px;
+    margin: 80px 0;
     li {
       min-height: 40px;
       width: 100%;

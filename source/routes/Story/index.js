@@ -17,7 +17,6 @@ export default class StoryPage extends Component {
 	render() {
 		const story = this.store.storyState.story;
 		const scraped = this.store.storyState.story.scraped;
-		console.log(story)
 		return (
 			<div className="page">
 				<Helmet>
@@ -72,7 +71,7 @@ export default class StoryPage extends Component {
 					</div>
 						<article>
 							<div className="story-content">
-								{story.leadImage && <div className="lead-image">
+								{story.leadImage && story.leadImage.thumb && <div className="lead-image">
 									<img src={story.leadImage.thumb} />
 									{(story.leadImage.caption || story.leadImage.credit) && <div>
 										{story.leadImage.caption}<span>&ensp;{story.leadImage.credit}</span>
@@ -88,37 +87,21 @@ export default class StoryPage extends Component {
 									);
 								})}
 							</div>
-							<div className="sidebar">
-								<div className="more-content">
-									<h4>Related Content</h4>
-									<ul>
-										{story.more && Array.prototype.map.call(story.more, (more) => {
-											console.log(more.thumb)
-											return (
-												<li>
-													<a href={more.href}>
-														{more.thumb && <div><img src={more.thumb} /></div>}
-														<span>{more.headline}<p>2017</p></span>
-													</a>
-												</li>
-											);
-										})}
-									</ul>
-								</div>
-								<div className="trending-content">
-									<h4>Trending</h4>
-									<ul>
-										{story.trending && Array.prototype.map.call(story.trending, (trend, index) => {
-											return (
-												<li>
-													<h5>{index + 1}.</h5><a href={trend.href}>{trend.headline}</a>
-												</li>
-											);
-										})}
-									</ul>
-								</div>
-							</div>
 					</article>
+					<div className="sidebar">
+						<div className="trending-content">
+							<h4>Related Content</h4>
+							<ul>
+								{story.trending && Array.prototype.map.call(story.trending, (trend, index) => {
+									return (
+										<li>
+											<h5>{index + 1}.</h5><a href={trend.href}>{trend.headline}</a>
+										</li>
+									);
+								})}
+							</ul>
+						</div>
+					</div>
 				</div>}
 			</div>
 		);

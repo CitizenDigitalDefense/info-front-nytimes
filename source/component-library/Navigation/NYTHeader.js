@@ -18,15 +18,14 @@ export default class NYTHeader extends Component {
 						<span>
 							Landing
 						</span>
-						<span>
-							<img src={require('../../assets/search.png')} />Find
-						</span>
 					</div>
 					<div className="branding">
 						<img className="logo" src={require('../../assets/logo.png')} />
 					</div>
 					<div className="profile">
-						<img src={require('../../assets/cog.png')} />
+						<span>
+							<img src={require('../../assets/search.png')} />
+						</span>
 					</div>
 				</div>
 			</header>
