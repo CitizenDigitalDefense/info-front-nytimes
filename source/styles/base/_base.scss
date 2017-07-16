@@ -1,0 +1,26 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+  line-height: 1;
+  background: #FFF;
+}
+
+.wrapper {
+  main {
+    min-height: 100vh;
+  }
+}
+
+#root, .wrapper {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
