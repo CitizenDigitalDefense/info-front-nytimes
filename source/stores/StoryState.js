@@ -13,6 +13,7 @@ export default class ToolState {
 
   async fetchData(path) {
     const params = {
+      source: 'fox',
       slug: path,
     };
     let uri = 'https://fake-news-api.herokuapp.com/stories';

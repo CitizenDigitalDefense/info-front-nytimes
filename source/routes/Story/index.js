@@ -31,7 +31,7 @@ export default class StoryPage extends Component {
 				</div>}
 				{scraped && <div className="story">
 					<div className="story-header">
-						<h2>Politics</h2>
+						<h2>{story.category || 'Politics'}</h2>
 						<h1>{story.headline}</h1>
 						<div className="story-header-meta">
 							{story.byLine && story.byLine.length > 0 && <div className="byline">
@@ -47,12 +47,15 @@ export default class StoryPage extends Component {
 											</span>
 										);
 									})}
-								 &emsp; {story.dateline}
+								 &ensp;• Published {story.dateline} • <a href={`http://www.foxnews.com${story.slug}`} target="_blank">Fox</a>
 								</p>
 							</div>}
 							{story.byLine && story.byLine.name && <div className="byline">
 								{story.byLine.image ? <img src={`${story.byLine.image}`} /> : ''}
-								{story.byLine.name ? <p>By <strong>{story.byLine.name}</strong> • Published {story.dateline}</p> : <p>Published {story.dateline}</p>}
+								{story.byLine.name ? <p>By <strong>{story.byLine.name}</strong> • Published {story.dateline} • <a href={`http://www.foxnews.com${story.slug}`} target="_blank">Fox</a></p> : <p>Published {story.dateline} • <a href={`http://www.foxnews.com${story.slug}`} target="_blank">Fox</a></p>}
+							</div>}
+							{!story.byLine && <div className="byline">
+								<p>Published {story.dateline} • <a href={`http://www.foxnews.com${story.slug}`} target="_blank">Fox</a></p>
 							</div>}
 							<div className="extras">
 								<div>
@@ -94,7 +97,7 @@ export default class StoryPage extends Component {
 											return (
 												<li>
 													<a href={more.href}>
-														<div><img src={more.thumb} /></div>
+														{more.thumb && <div><img src={more.thumb} /></div>}
 														<span>{more.headline}<p>2017</p></span>
 													</a>
 												</li>
