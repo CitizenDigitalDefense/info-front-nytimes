@@ -16,7 +16,7 @@ export default class ToolState {
       source: 'fox',
       slug: path,
     };
-    let uri = 'https://fake-news-api.herokuapp.com/stories';
+    let uri = 'https://info-front-api.herokuapp.com/stories';
     const { data } = await axios.get(uri, { params });
     data.slug ? this.setSingle(data) : this.setData(data);
   }
